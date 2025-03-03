@@ -117,22 +117,12 @@ rosrun <your_package> stereo_matching.py
    left_image_topic = rospy.get_param('~left_image_topic', '/left/image_raw')
    right_image_topic = rospy.get_param('~right_image_topic', '/right/image_raw')
    ```
-   - 默认假定话题为 `/left/image_raw` 和 `/right/image_raw`  
-   - 如果你的相机发布的话题名称不同，需要在启动时通过参数或直接修改脚本。
 
 2. **相机标定脚本（calibrate）**  
    ```python
    pattern_size = (9, 6)  # 棋盘格内角点数量 (列, 行)
    square_size = 0.025    # 棋盘格方格边长 (米)，请根据实际棋盘调整
    ```
-   - 如果你的棋盘格尺寸或方格边长不同，需要相应修改这两个参数。  
-   - 保证与采集图像时使用的棋盘格实际规格一致，否则标定精度会受影响。
 
 ---
 
-**如需更多信息**  
-- 你可以查看 ROS 官方文档或 OpenCV 官方文档，了解更多关于相机标定和立体匹配的配置和原理。  
-- 如果在使用过程中遇到问题，可以尝试 `rqt_graph` 查看话题连接情况，或使用 `rostopic list` / `rostopic echo` 进行排查。
-
-祝使用顺利！
-```
